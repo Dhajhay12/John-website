@@ -71,7 +71,7 @@ if (contactForm) {
     const email = document.getElementById("email")?.value || "";
     const message = document.getElementById("message")?.value || "";
 
-    const phoneNumber = "2348012345678"; // 🔴 Replace with your WhatsApp number
+    const phoneNumber = "2348030495098"; // 🔴 Replace with your WhatsApp number
 
     const whatsappMessage =
       `Hello John Website Enterprise 👋\n\n` +
