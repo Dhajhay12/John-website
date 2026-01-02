@@ -1,0 +1,410 @@
+/* =====================================================
+   CSS VARIABLES
+===================================================== */
+:root {
+  --primary: #0d6efd;
+  --secondary: #6610f2;
+  --dark: #0b1c2d;
+  --light: #f8f9fa;
+  --gray: #6c757d;
+  --radius: 12px;
+  --transition: all 0.35s ease;
+}
+
+/* =====================================================
+   RESET & GLOBAL
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--light);
+  color: #222;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+.hero {
+  min-height: 85vh;
+  background:
+    linear-gradient(rgba(11,28,45,.75), rgba(11,28,45,.75)),
+    url("../images/hero.jpg") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 5vw, 3.5rem);
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  animation: fadeDown 1s ease;
+}
+
+.hero p {
+  max-width: 700px;
+  font-size: 1.15rem;
+  opacity: 0.95;
+  animation: fadeUp 1.2s ease;
+}
+
+.hero .btn {
+  margin-top: 30px;
+  background: var(--primary);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 15px 30px rgba(0,0,0,.25);
+}
+
+.hero .btn:hover {
+  background: white;
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: white;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 600;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background: var(--primary);
+  left: 0;
+  bottom: -6px;
+  transition: var(--transition);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Dark mode toggle button */
+.dark-toggle {
+  background: none;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dark-toggle:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+section {
+  max-width: 1150px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+section h2 {
+  font-size: 2.3rem;
+  color: var(--dark);
+  margin-bottom: 25px;
+  position: relative;
+}
+
+section h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  display: block;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+section p {
+  max-width: 800px;
+  color: var(--gray);
+  font-size: 1.05rem;
+}
+
+/* =====================================================
+   ABOUT IMAGE
+===================================================== */
+.page-img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--radius);
+  margin: 25px 0;
+  box-shadow: 0 20px 40px rgba(0,0,0,.15);
+  transition: var(--transition);
+}
+
+.page-img:hover {
+  transform: scale(1.03);
+}
+
+/* =====================================================
+   SERVICES
+===================================================== */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background: white;
+  padding: 35px 25px;
+  border-radius: var(--radius);
+  box-shadow: 0 15px 35px rgba(0,0,0,.1);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.card h3,
+.card p {
+  position: relative;
+  z-index: 1;
+}
+
+.card:hover::before {
+  opacity: 0.08;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* =====================================================
+   PORTFOLIO
+===================================================== */
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.portfolio img {
+  width: 100%;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 15px 30px rgba(0,0,0,.15);
+}
+
+.portfolio img:hover {
+  transform: scale(1.05);
+}
+
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+form {
+  max-width: 650px;
+  margin: 40px auto 0;
+  display: grid;
+  gap: 18px;
+}
+
+input,
+textarea {
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(13,110,253,.15);
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  padding: 15px;
+  border-radius: 40px;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   WHATSAPP BUTTON
+===================================================== */
+.whatsapp-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25d366;
+  color: white;
+  padding: 15px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 15px 30px rgba(0,0,0,.3);
+  animation: pulse 2s infinite;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+}
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 0.95rem;
+}
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+body.dark {
+  background: #020617;
+  color: #e5e7eb;
+}
+
+body.dark nav {
+  background: #020617;
+  box-shadow: 0 4px 15px rgba(255,255,255,.05);
+}
+
+body.dark section,
+body.dark footer {
+  background: transparent;
+}
+
+body.dark .card,
+body.dark form {
+  background: #020617;
+  box-shadow: 0 15px 35px rgba(255,255,255,.05);
+}
+
+body.dark input,
+body.dark textarea {
+  background: #020617;
+  color: white;
+  border-color: #334155;
+}
+
+body.dark a {
+  color: #93c5fd;
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102,.7); }
+  70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  section {
+    padding: 60px 15px;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+}
